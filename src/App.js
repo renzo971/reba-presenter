@@ -1,51 +1,56 @@
 import React from "react";
-import "./globals.css";
-import { Routes, Route, Outlet, Link, MemoryRouter } from "react-router-dom";
-import { PresenterProvider } from "./providers/presenter";
-import { ScripturesProvider } from "./providers/scriptures";
-import { AnthemnsProvider } from "./providers";
+import { MemoryRouter } from "react-router-dom";
 
-import { Navbar } from "./components/navbar";
+import { Navbar, Routesbar, Settings } from "./components";
+import {
+  AnthemnsProvider,
+  AppProvider,
+  BirthdaysProvider,
+  PresenterProvider,
+  ScripturesProvider,
+} from "./providers";
+import { RouteMapper } from "./router";
 
-import AnthemnsView from "./views/anthemns/index";
-import CastView from "./views/cast";
-import HomeView from "./views/home";
-import ScripturesView from "./views/scriptures";
-
-import { ANTHEMNS_VIEW_PATH, BIBLE_VIEW_PATH, CAST_VIEW_PATH } from "./values";
-
-import "bootstrap/dist/css/bootstrap.css";
 import "react-bootstrap-typeahead/css/Typeahead.css";
-import "./index.css";
+import styled from "styled-components";
+import "./assets/styles/custom.scss";
+import "./assets/styles/index.css";
 export default function App() {
   return (
-    <MemoryRouter>
-      <PresenterProvider>
-        <Navbar />
-        <Routes>
-          <Route
-            path={BIBLE_VIEW_PATH}
-            element={
-              <ScripturesProvider>
-                <ScripturesView />
-              </ScripturesProvider>
-            }
-          ></Route>
-
-          <Route
-            path={ANTHEMNS_VIEW_PATH}
-            element={
-              <AnthemnsProvider>
-                <AnthemnsView />
-              </AnthemnsProvider>
-            }
-          ></Route>
-
-          <Route path={CAST_VIEW_PATH} element={<CastView />}></Route>
-
-          <Route path="/" element={<HomeView />}></Route>
-        </Routes>
-      </PresenterProvider>
-    </MemoryRouter>
+    <AppProvider>
+      <MemoryRouter>
+        <PresenterProvider>
+          <ScripturesProvider>
+            <AnthemnsProvider>
+              <BirthdaysProvider>
+                <GridStyled>
+                  {/* Nav */}
+                  <Routesbar />
+                  {/* Top navbar */}
+                  <Navbar />
+                  {/* Routes */}
+                  <RouteMapper />
+                  {/* Sidebar settings */}
+                </GridStyled>
+                <Settings />
+              </BirthdaysProvider>
+            </AnthemnsProvider>
+          </ScripturesProvider>
+        </PresenterProvider>
+      </MemoryRouter>
+    </AppProvider>
   );
 }
+
+const GridStyled = styled.div`
+  display: grid;
+  grid-template-columns: auto 1fr;
+  grid-template-rows: auto 1fr;
+  grid-template-areas:
+    "navbar navbar"
+    "routesbar content";
+  height: 100vh;
+  overflow: hidden;
+  position: relative;
+  width: 100%;
+`;
