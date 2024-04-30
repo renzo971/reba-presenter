@@ -1,7 +1,7 @@
-import { List } from "../../components";
-import { useState } from "react";
+import { List } from 'components';
+import { useState } from 'react';
 
-import { useAnthemn } from "../../hooks";
+import { useAnthemn } from 'hooks';
 
 export function AnthemnTags({ onClick = () => {}, current }) {
   const { anthemns, tags } = useAnthemn();
@@ -13,7 +13,7 @@ export function AnthemnTags({ onClick = () => {}, current }) {
     setList(() =>
       tag === selected
         ? []
-        : anthemns.filter((song) => song.tags?.split(",").includes(tag))
+        : anthemns.filter((song) => song.tags?.split(',').includes(tag))
     );
   };
 
@@ -43,14 +43,14 @@ export function AnthemnTags({ onClick = () => {}, current }) {
         {!selected ? (
           <List.Item
             className="my-2"
-            style={{ flexWrap: "wrap", justifyContent: "start" }}
+            style={{ flexWrap: 'wrap', justifyContent: 'start' }}
           >
             {tags.map((tag, index) => (
               <span
                 key={index}
                 onClick={() => onChangeTag(tag)}
                 className={`tag mr-1 mb-1 pointer ${
-                  tag === selected ? "active" : ""
+                  tag === selected ? 'active' : ''
                 }`}
               >
                 {tag}
@@ -63,8 +63,8 @@ export function AnthemnTags({ onClick = () => {}, current }) {
           <List.Item key={item.index}>
             <List.Action
               onClick={() => onClick([item])}
-              title={item?.text.replaceAll("/n", "\n")}
-              className={current.id === item.id ? "text-light" : ""}
+              title={item?.text.replaceAll('/n', '\n')}
+              className={current.id === item.id ? 'text-light' : ''}
             >
               {item.title}
             </List.Action>

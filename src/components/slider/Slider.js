@@ -1,9 +1,9 @@
-import { Presenter } from "../../components";
-import { useIterate, useKeyUp } from "../../hooks";
-import { forwardRef, useEffect, useImperativeHandle, useState } from "react";
-import createPersistedState from "use-persisted-state";
-import { BROADCAST, MOVEMENT } from "../../values";
-import { SummaryStyled } from "./styled";
+import { Presenter } from 'components';
+import { useIterate, useKeyUp } from 'hooks';
+import { forwardRef, useEffect, useImperativeHandle, useState } from 'react';
+import createPersistedState from 'use-persisted-state';
+import { BROADCAST, MOVEMENT } from 'values';
+import { SummaryStyled } from './styled';
 
 const useBroadcast = createPersistedState(BROADCAST.CHANNEL);
 const useSettings = createPersistedState(BROADCAST.SETTINGS);
@@ -70,7 +70,7 @@ export const Slider = forwardRef(
         interval = setInterval(() => {
           const slideToGo = moveSlide(MOVEMENT.NEXT, loop);
           setSlide(slideToGo);
-        }, (type === "trivia" ? settings.triviainterval : settings.interval) || 20000);
+        }, (type === 'trivia' ? settings.triviainterval : settings.interval) || 20000);
       }
       return () => clearInterval(interval);
     }, [
@@ -82,8 +82,8 @@ export const Slider = forwardRef(
       type,
     ]);
 
-    useKeyUp("ArrowLeft", onPrevSlide);
-    useKeyUp("ArrowRight", onNextSlide);
+    useKeyUp('ArrowLeft', onPrevSlide);
+    useKeyUp('ArrowRight', onNextSlide);
 
     return (
       <>
@@ -124,8 +124,8 @@ export const Slider = forwardRef(
             {slide?.index + 1}/{slides?.length}
             {slides?.length > 1 ? (
               <>
-                {" "}
-                &middot;{" "}
+                {' '}
+                &middot;{' '}
                 <strong className="text-light">
                   {Math.round(
                     (((slide.index + 1) / slides.length) * 100 +

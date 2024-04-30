@@ -1,21 +1,21 @@
-import json from "../assets/data/anthemns";
-import React, { useMemo, useState } from "react";
-import { Slide } from "../utils";
+import json from 'assets/data/anthemns';
+import React, { useMemo, useState } from 'react';
+import { Slide } from 'utils';
 
 const AnthemnsContext = React.createContext({});
 
 function getSizes(text) {
   const len = text
-    .replace("1)", "")
-    .replace("2)", "")
-    .replace("3)", "")
-    .replace("4)", "")
-    .replace("5)", "")
-    .replace("6)", "")
-    .replace("7)", "")
-    .replace("8)", "")
-    .replace("9)", "")
-    .replace("10)", "")
+    .replace('1)', '')
+    .replace('2)', '')
+    .replace('3)', '')
+    .replace('4)', '')
+    .replace('5)', '')
+    .replace('6)', '')
+    .replace('7)', '')
+    .replace('8)', '')
+    .replace('9)', '')
+    .replace('10)', '')
     .trim().length;
   const specialCharts = (text.match(/\.|,|;|!|¡|¿|\?/gi) || []).length;
 
@@ -24,20 +24,20 @@ function getSizes(text) {
 
 function getWords(text) {
   const str = text
-    .replace("1)", "")
-    .replace("2)", "")
-    .replace("3)", "")
-    .replace("4)", "")
-    .replace("5)", "")
-    .replace("6)", "")
-    .replace("7)", "")
-    .replace("8)", "")
-    .replace("9)", "")
-    .replace("10)", "")
-    .replace("/", "")
+    .replace('1)', '')
+    .replace('2)', '')
+    .replace('3)', '')
+    .replace('4)', '')
+    .replace('5)', '')
+    .replace('6)', '')
+    .replace('7)', '')
+    .replace('8)', '')
+    .replace('9)', '')
+    .replace('10)', '')
+    .replace('/', '')
     .trim();
 
-  return str.split(" ").length;
+  return str.split(' ').length;
 }
 
 function split(lines, array, id, index, title, divider = 2) {
@@ -52,7 +52,7 @@ function split(lines, array, id, index, title, divider = 2) {
         id: `${id}_${index}`,
         index: index++,
         title: iteration === 0 ? title : null,
-        text: lines.slice(from, to).join("/n"),
+        text: lines.slice(from, to).join('/n'),
       })
     );
     iteration++;
@@ -68,7 +68,7 @@ function splitLines(id, title, text, array, index) {
   const FIT_WORDS = 8;
   const MAX_WORDS_PER_SLIDE = 30;
   const FIT_CHARS = 30;
-  const lines = text.split("/n");
+  const lines = text.split('/n');
   const count = lines.length;
   const chars = lines.map(getSizes);
   const words = lines.map(getWords);
@@ -125,15 +125,15 @@ function AnthemnsProvider({ children }) {
       ) => {
         const slides = [];
         const id = `A${number}`;
-        let text = "";
+        let text = '';
         let slideIndex = 0;
-        const isNotAnthemn = tags?.toLowerCase().includes("coro");
+        const isNotAnthemn = tags?.toLowerCase().includes('coro');
         // const isExtra = tags?.toLowerCase().includes('apéndice');
 
         if (tags) {
           tags
             ?.toLowerCase()
-            .split(",")
+            .split(',')
             .forEach((tag) => tagsSet.add(tag));
         }
 
@@ -148,7 +148,7 @@ function AnthemnsProvider({ children }) {
         );
 
         if (startsWithChorus) {
-          slideIndex = splitLines(id, "(Coro)", chorus, slides, slideIndex);
+          slideIndex = splitLines(id, '(Coro)', chorus, slides, slideIndex);
         }
 
         stanzas.forEach((stanza, i) => {
@@ -156,7 +156,7 @@ function AnthemnsProvider({ children }) {
           text += `${stanza} /n/n`;
 
           if (chorus) {
-            slideIndex = splitLines(id, "(Coro)", chorus, slides, slideIndex);
+            slideIndex = splitLines(id, '(Coro)', chorus, slides, slideIndex);
 
             if (i === 0) {
               text += `(CORO) /n${chorus} /n/n`;
@@ -165,14 +165,14 @@ function AnthemnsProvider({ children }) {
         });
 
         if (repeatChorusAtEnd) {
-          slideIndex = splitLines(id, "(Coro)", chorus, slides, slideIndex);
+          slideIndex = splitLines(id, '(Coro)', chorus, slides, slideIndex);
         }
 
         slides.push(
           Slide.create({
             id: `${id}_${slideIndex}`,
-            text: "&#119070;",
-            subtext: "¡Amén!",
+            text: '&#119070;',
+            subtext: '¡Amén!',
             index: slideIndex,
           })
         );
@@ -183,7 +183,7 @@ function AnthemnsProvider({ children }) {
           number,
           title: `#${number} ${title}`,
           name: title,
-          type: "anthemn",
+          type: 'anthemn',
           slides,
           text,
           tags: tags?.toLowerCase(),

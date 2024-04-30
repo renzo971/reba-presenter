@@ -9,7 +9,7 @@ import {
   VolumeMute,
   VolumeUp,
   West,
-} from "@mui/icons-material";
+} from '@mui/icons-material';
 import {
   Alert,
   Bookmark,
@@ -22,25 +22,25 @@ import {
   Slider,
   Title,
   Wrapper,
-} from "../../components";
-import { useAnthemn, useFolder, useKeyUp, usePresenter } from "../../hooks";
-import React, { useEffect, useRef, useState } from "react";
+} from 'components';
+import { useAnthemn, useFolder, useKeyUp, usePresenter } from 'hooks';
+import React, { useEffect, useRef, useState } from 'react';
 import {
   Button,
   ButtonGroup,
   Form,
   OverlayTrigger,
   Tooltip,
-} from "react-bootstrap";
-import { Typeahead } from "react-bootstrap-typeahead";
-import createPersistedState from "use-persisted-state";
-import useSound from "use-sound";
-import { Storage, getBookmarkedItems } from "../../utils";
-import { BROADCAST, MOVEMENT } from "../../values";
-import { AnthemnIndex } from "./AnthemnIndex";
-import { AnthemnTags } from "./AnthemnTags";
-import { RecentBirthdays } from "./RecentBirthdays";
-import { finderRender, typeaheadRender } from "./renders";
+} from 'react-bootstrap';
+import { Typeahead } from 'react-bootstrap-typeahead';
+import createPersistedState from 'use-persisted-state';
+import useSound from 'use-sound';
+import { Storage, getBookmarkedItems } from 'utils';
+import { BROADCAST, MOVEMENT } from 'values';
+import { AnthemnIndex } from './AnthemnIndex';
+import { AnthemnTags } from './AnthemnTags';
+import { RecentBirthdays } from './RecentBirthdays';
+import { finderRender, typeaheadRender } from './renders';
 
 const useSettings = createPersistedState(BROADCAST.SETTINGS);
 
@@ -58,9 +58,9 @@ export default function AnthemnsPage() {
   const [openFinder, setOpenFinder] = useState(false);
   const [openIndex, setOpenIndex] = useState(false);
   const [search, setSearch] = useState([current]);
-  const [bookmarkSort, setBookmarkSort] = useState("asc");
+  const [bookmarkSort, setBookmarkSort] = useState('asc');
   const [bookmarks, setBookmarks] = useState(
-    getBookmarkedItems("anthemn", bookmarkSort)
+    getBookmarkedItems('anthemn', bookmarkSort)
   );
   const [url, setUrl] = useState(folder.getPath(current.number));
   const [isMP3Loaded, setIsMP3Loaded] = useState(false);
@@ -162,16 +162,16 @@ export default function AnthemnsPage() {
   };
 
   const handleSort = () => {
-    const sort = bookmarkSort === "desc" ? "asc" : "desc";
+    const sort = bookmarkSort === 'desc' ? 'asc' : 'desc';
     setBookmarkSort(sort);
-    setBookmarks(getBookmarkedItems("anthemn", sort));
+    setBookmarks(getBookmarkedItems('anthemn', sort));
   };
 
-  useKeyUp("ArrowUp", handleNextAnthemn);
-  useKeyUp("ArrowDown", handlePrevAnthemn);
-  useKeyUp("F1", () => typeaheadRef.current.focus());
-  useKeyUp("Space", handleTogglePlay);
-  useKeyUp("KeyB", () => setOpenFinder(true), { ctrl: true });
+  useKeyUp('ArrowUp', handleNextAnthemn);
+  useKeyUp('ArrowDown', handlePrevAnthemn);
+  useKeyUp('F1', () => typeaheadRef.current.focus());
+  useKeyUp('Space', handleTogglePlay);
+  useKeyUp('KeyB', () => setOpenFinder(true), { ctrl: true });
 
   return (
     <Wrapper>
@@ -262,7 +262,7 @@ export default function AnthemnsPage() {
           }
         >
           Usa las teclas <strong>&larr;</strong> y <strong>&rarr;</strong> para
-          cambiar de página, y <strong>&uarr;</strong> y <strong>&darr;</strong>{" "}
+          cambiar de página, y <strong>&uarr;</strong> y <strong>&darr;</strong>{' '}
           para cambiar de himno.
         </Slider>
 
@@ -312,14 +312,14 @@ export default function AnthemnsPage() {
             <small>
               <span className="text-light">
                 Este himno <strong>NO</strong> tiene pista.
-              </span>{" "}
-              Agrega su pista en formato <i>.mp3</i> en la carpeta{" "}
+              </span>{' '}
+              Agrega su pista en formato <i>.mp3</i> en la carpeta{' '}
               <strong
                 className="pointer text-underline"
                 onClick={handleOpenPath}
               >
                 /himnos
-              </strong>{" "}
+              </strong>{' '}
               con el nombre <strong>{current.number}.mp3</strong>
             </small>
           )}
@@ -421,7 +421,7 @@ export default function AnthemnsPage() {
                   min="0.5"
                   max="2"
                   step="0.05"
-                  style={{ width: "80px" }}
+                  style={{ width: '80px' }}
                   className="mx-2 volume-control"
                   onChange={({ target }) => {
                     setPlaybackRate(() => {

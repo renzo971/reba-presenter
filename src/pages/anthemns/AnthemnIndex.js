@@ -1,10 +1,10 @@
-import { Bookmark } from "../../components";
-import { useAnthemn } from "../../hooks";
-import { useCallback, useState } from "react";
-import { Form, Modal } from "react-bootstrap";
-import styledComponents from "styled-components";
-import { Storage } from "../../utils";
-import { AnthemnCategory, createCategoryKey } from "./AnthemCategory";
+import { Bookmark } from 'components';
+import { useAnthemn } from 'hooks';
+import { useCallback, useState } from 'react';
+import { Form, Modal } from 'react-bootstrap';
+import styledComponents from 'styled-components';
+import { Storage } from 'utils';
+import { AnthemnCategory, createCategoryKey } from './AnthemCategory';
 
 const AnthemnIndexStyled = styledComponents.div`
   width: 100%;
@@ -67,13 +67,13 @@ const AnthemnIndexStyled = styledComponents.div`
 export function AnthemnIndex({
   onChange = () => {},
   onSelect = () => {},
-  sort = "desc",
+  sort = 'desc',
   show = false,
   onHide = () => {},
   ...rest
 }) {
   const { anthemns } = useAnthemn();
-  const [category, setCategory] = useState("ALL");
+  const [category, setCategory] = useState('ALL');
 
   const handleChange = ({ target }) => {
     const { value } = target;
@@ -86,25 +86,25 @@ export function AnthemnIndex({
         item.category = Storage.get(createCategoryKey(item));
       }
 
-      if (category === "CHEERFUL" && item.category !== "CHEERFUL") {
+      if (category === 'CHEERFUL' && item.category !== 'CHEERFUL') {
         return null;
       }
 
-      if (category === "CONGREGATIONAL" && item.category !== "CONGREGATIONAL") {
+      if (category === 'CONGREGATIONAL' && item.category !== 'CONGREGATIONAL') {
         return null;
       }
 
-      if (category === "SOLEMN" && item.category !== "SOLEMN") {
+      if (category === 'SOLEMN' && item.category !== 'SOLEMN') {
         return null;
       }
 
-      if (category === "" && item.category) {
+      if (category === '' && item.category) {
         return null;
       }
 
       return (
         <li key={index}>
-          <span title={item?.text?.replaceAll("/n", "\n").replaceAll("_", "")}>
+          <span title={item?.text?.replaceAll('/n', '\n').replaceAll('_', '')}>
             <span className="number text-light">#{item.number}</span>
             <span className="name" onClick={() => onSelect(item)}>
               {item.name}

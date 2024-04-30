@@ -1,17 +1,17 @@
-import { Sort } from "@mui/icons-material";
-import { Bookmark, createKey, List } from "../../components";
-import { useAnthemn, useScriptures } from "../../hooks";
-import { getBookmarkedItems, Storage } from "../../utils";
-import { MAX_BOOKMARKS } from "../../values";
+import { Sort } from '@mui/icons-material';
+import { Bookmark, createKey, List } from 'components';
+import { useAnthemn, useScriptures } from 'hooks';
+import { getBookmarkedItems, Storage } from 'utils';
+import { MAX_BOOKMARKS } from 'values';
 
 export function BookmarkList({
-  type = "",
+  type = '',
   items = [],
   onChange = () => {},
   onClick = () => {},
   onSort = null,
   current,
-  sort = "desc",
+  sort = 'desc',
   ...rest
 }) {
   const { scriptures } = useScriptures();
@@ -45,18 +45,18 @@ export function BookmarkList({
           <List.Item key={index}>
             <List.Action
               onClick={() => {
-                if (type === "verse") {
+                if (type === 'verse') {
                   onClick(scriptures[item.index]);
                 } else {
                   onClick(anthemns[item.index]);
                 }
               }}
               title={
-                type === "verse"
-                  ? item?.text.replaceAll("<br/>", "\n").replaceAll("_", "")
-                  : item?.text?.replaceAll("/n", "\n").replaceAll("_", "")
+                type === 'verse'
+                  ? item?.text.replaceAll('<br/>', '\n').replaceAll('_', '')
+                  : item?.text?.replaceAll('/n', '\n').replaceAll('_', '')
               }
-              className={current.id === item.id ? "text-light" : ""}
+              className={current.id === item.id ? 'text-light' : ''}
             >
               {item.title}
             </List.Action>
@@ -69,7 +69,7 @@ export function BookmarkList({
         <List.Item>
           <List.Text>
             +{items.length - MAX_BOOKMARKS} marcador
-            {items.length - MAX_BOOKMARKS > 1 ? "es" : ""}
+            {items.length - MAX_BOOKMARKS > 1 ? 'es' : ''}
           </List.Text>
         </List.Item>
       ) : null}

@@ -1,24 +1,25 @@
-import React from "react";
-import { MemoryRouter } from "react-router-dom";
+import { HashRouter as Router } from 'react-router-dom';
 
-import { Navbar, Routesbar, Settings } from "./components";
+import { Navbar, Routesbar, Settings } from 'components';
 import {
   AnthemnsProvider,
   AppProvider,
   BirthdaysProvider,
   PresenterProvider,
   ScripturesProvider,
-} from "./providers";
-import { RouteMapper } from "./router";
+} from 'providers';
+import { RouteMapper } from 'router';
 
-import "react-bootstrap-typeahead/css/Typeahead.css";
-import styled from "styled-components";
-import "./assets/styles/custom.scss";
-import "./assets/styles/index.css";
-export default function App() {
+// CSS
+import 'react-bootstrap-typeahead/css/Typeahead.css';
+import styled from 'styled-components';
+import './assets/styles/custom.scss';
+import './assets/styles/index.css';
+
+function App() {
   return (
     <AppProvider>
-      <MemoryRouter>
+      <Router>
         <PresenterProvider>
           <ScripturesProvider>
             <AnthemnsProvider>
@@ -37,18 +38,20 @@ export default function App() {
             </AnthemnsProvider>
           </ScripturesProvider>
         </PresenterProvider>
-      </MemoryRouter>
+      </Router>
     </AppProvider>
   );
 }
+
+export default App;
 
 const GridStyled = styled.div`
   display: grid;
   grid-template-columns: auto 1fr;
   grid-template-rows: auto 1fr;
   grid-template-areas:
-    "navbar navbar"
-    "routesbar content";
+    'navbar navbar'
+    'routesbar content';
   height: 100vh;
   overflow: hidden;
   position: relative;

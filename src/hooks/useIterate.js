@@ -1,12 +1,12 @@
-import { MOVEMENT } from "../values";
+import { MOVEMENT } from 'values';
 
 export function useIterate(current, list) {
   const len = list.length;
   const lastIndex = len - 1;
 
   const next = (loop = false) => {
-    if (!current.hasOwnProperty("index") || current.index === null) {
-      current["index"] = list.findIndex(({ id }) => id === current.id);
+    if (!current.hasOwnProperty('index') || current.index === null) {
+      current['index'] = list.findIndex(({ id }) => id === current.id);
     }
 
     let index = Math.min(current.index + 1, lastIndex);
@@ -17,16 +17,16 @@ export function useIterate(current, list) {
 
     const value = list[index];
 
-    if (!value.hasOwnProperty("index") || value.index === null) {
-      value["index"] = index;
+    if (!value.hasOwnProperty('index') || value.index === null) {
+      value['index'] = index;
     }
 
     return value;
   };
 
   const previous = (loop = false) => {
-    if (!current.hasOwnProperty("index") || current.index === null) {
-      current["index"] = list.findIndex(({ id }) => id === current.id);
+    if (!current.hasOwnProperty('index') || current.index === null) {
+      current['index'] = list.findIndex(({ id }) => id === current.id);
     }
 
     let index = Math.max(current.index - 1, 0);
@@ -37,8 +37,8 @@ export function useIterate(current, list) {
 
     const value = list[index];
 
-    if (!value.hasOwnProperty("index") || value.index === null) {
-      value["index"] = index;
+    if (!value.hasOwnProperty('index') || value.index === null) {
+      value['index'] = index;
     }
 
     return value;

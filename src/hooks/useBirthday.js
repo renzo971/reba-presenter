@@ -1,9 +1,9 @@
-import { useContext, useEffect, useState, useCallback } from "react";
-import createPersistedState from "use-persisted-state";
+import { useContext, useEffect, useState, useCallback } from 'react';
+import createPersistedState from 'use-persisted-state';
 
-import { BirthdaysContext } from "../providers";
-import { BROADCAST } from "../values";
-import { BirthdayHelper as BH } from "../utils";
+import { BirthdaysContext } from 'providers';
+import { BROADCAST } from 'values';
+import { BirthdayHelper as BH } from 'utils';
 
 const useSettings = createPersistedState(BROADCAST.SETTINGS);
 

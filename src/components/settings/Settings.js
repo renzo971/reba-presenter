@@ -4,14 +4,14 @@ import {
   Download,
   Favorite,
   FileUpload,
-} from "@mui/icons-material";
-import { Logo, LogoPreview, Sidebar, TextPreview } from "../../components";
-import { usePresenter, useSettingsSidebar } from "../../hooks";
-import React, { useState } from "react";
-import { Button, Col, Form, InputGroup, Row } from "react-bootstrap";
-import createPersistedState from "use-persisted-state";
-import { Storage } from "../../utils";
-import { BROADCAST, SETTINGS_OPTIONS, THEMES } from "../../values";
+} from '@mui/icons-material';
+import { Logo, LogoPreview, Sidebar, TextPreview } from 'components';
+import { usePresenter, useSettingsSidebar } from 'hooks';
+import React, { useState } from 'react';
+import { Button, Col, Form, InputGroup, Row } from 'react-bootstrap';
+import createPersistedState from 'use-persisted-state';
+import { Storage } from 'utils';
+import { BROADCAST, SETTINGS_OPTIONS, THEMES } from 'values';
 
 const useSettings = createPersistedState(BROADCAST.SETTINGS);
 
@@ -42,7 +42,7 @@ export function Settings() {
 
   const handleChangeTheme = ({ target }) => {
     const { value } = target;
-    const data = value !== "custom" ? THEMES[value] : {};
+    const data = value !== 'custom' ? THEMES[value] : {};
 
     setSettings((state) => ({
       ...state,
@@ -86,7 +86,7 @@ export function Settings() {
     <Sidebar
       light
       closable
-      className={showingSettings ? "" : "closed"}
+      className={showingSettings ? '' : 'closed'}
       size={620}
       offset={310 + 45}
     >
@@ -94,7 +94,7 @@ export function Settings() {
       <Button
         className="p-0 text-dark"
         variant="link"
-        style={{ position: "absolute", top: 13, right: 10 }}
+        style={{ position: 'absolute', top: 13, right: 10 }}
         onClick={toggleSettings}
       >
         <Close />
@@ -295,7 +295,7 @@ export function Settings() {
                 name="textcolor"
                 value={settings?.textcolor}
                 onChange={handleChangeValue}
-                disabled={settings?.theme !== "custom"}
+                disabled={settings?.theme !== 'custom'}
               />
             </Form.Group>
 
@@ -307,7 +307,7 @@ export function Settings() {
                 name="subtextcolor"
                 value={settings?.subtextcolor}
                 onChange={handleChangeValue}
-                disabled={settings?.theme !== "custom"}
+                disabled={settings?.theme !== 'custom'}
               />
             </Form.Group>
 
@@ -319,7 +319,7 @@ export function Settings() {
                 name="titlecolor"
                 value={settings?.titlecolor}
                 onChange={handleChangeValue}
-                disabled={settings?.theme !== "custom"}
+                disabled={settings?.theme !== 'custom'}
               />
             </Form.Group>
 
@@ -331,7 +331,7 @@ export function Settings() {
                 name="jesus"
                 value={settings?.jesus}
                 onChange={handleChangeValue}
-                disabled={settings?.theme !== "custom"}
+                disabled={settings?.theme !== 'custom'}
               />
             </Form.Group>
 
@@ -360,7 +360,7 @@ export function Settings() {
           setExpanded((value) => !value);
         }}
       >
-        <CalendarMonth fontSize="small" /> Horarios{" "}
+        <CalendarMonth fontSize="small" /> Horarios{' '}
         {/* {expanded ? (
           <ExpandLess fontSize="small" />
         ) : (
@@ -374,8 +374,8 @@ export function Settings() {
             <Col key={index} xs={6} className="mb-3">
               <div
                 style={{
-                  backgroundColor: schedule.active ? "#fff" : "#f2f3f5",
-                  borderLeftWidth: "5px !important",
+                  backgroundColor: schedule.active ? '#fff' : '#f2f3f5',
+                  borderLeftWidth: '5px !important',
                 }}
                 className="p-3 border border-primary rounded h-100"
               >
@@ -390,7 +390,7 @@ export function Settings() {
                         checked={schedule.active}
                         onChange={() =>
                           handleSchedulesChangeValue(
-                            "active",
+                            'active',
                             !schedule.active,
                             index
                           )
@@ -720,7 +720,7 @@ export function Settings() {
           </Form.Label>
           <Form.File
             id="import"
-            label={file ? file.name : "Selecciona un archivo..."}
+            label={file ? file.name : 'Selecciona un archivo...'}
             accept=".json"
             custom
             onChange={({ target }) => setFile(target.files[0])}
@@ -755,7 +755,7 @@ export function Settings() {
       <hr />
 
       <small className="d-block text-center text-muted mt-4">
-        Hecho con <Favorite fontSize="small" className="text-danger pulse" />{" "}
+        Hecho con <Favorite fontSize="small" className="text-danger pulse" />{' '}
         para Dios y su Iglesia. <br />
         Por Christiam Mena (@xtiam57). <br />
         <a href="mailto:christiam.mena@gmail.com">christiam.mena@gmail.com</a>

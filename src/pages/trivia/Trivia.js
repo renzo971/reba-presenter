@@ -1,4 +1,4 @@
-import { East, Pause, PlayArrow, Repeat, West } from "@mui/icons-material";
+import { East, Pause, PlayArrow, Repeat, West } from '@mui/icons-material';
 import {
   Alert,
   Controls,
@@ -8,13 +8,13 @@ import {
   Slider,
   Title,
   Wrapper,
-} from "../../components";
-import { useIterate, useKeyUp, usePresenter } from "../../hooks";
-import { useEffect, useRef, useState } from "react";
-import { Button, ButtonGroup, OverlayTrigger, Tooltip } from "react-bootstrap";
-import createPersistedState from "use-persisted-state";
-import { BROADCAST, MOVEMENT } from "../../values";
-import { QUESTIONS } from "./data";
+} from 'components';
+import { useIterate, useKeyUp, usePresenter } from 'hooks';
+import { useEffect, useRef, useState } from 'react';
+import { Button, ButtonGroup, OverlayTrigger, Tooltip } from 'react-bootstrap';
+import createPersistedState from 'use-persisted-state';
+import { BROADCAST, MOVEMENT } from 'values';
+import { QUESTIONS } from './data';
 
 const useSettings = createPersistedState(BROADCAST.SETTINGS);
 
@@ -53,9 +53,9 @@ export default function TriviaPage() {
     setCurrent(trivia);
   };
 
-  useKeyUp("ArrowUp", handlePrevNotice);
-  useKeyUp("ArrowDown", handleNextNotice);
-  useKeyUp("Space", () => setAutoplay((state) => !state));
+  useKeyUp('ArrowUp', handlePrevNotice);
+  useKeyUp('ArrowDown', handleNextNotice);
+  useKeyUp('Space', () => setAutoplay((state) => !state));
 
   return (
     <Wrapper>
@@ -101,7 +101,7 @@ export default function TriviaPage() {
           grayscale={presenting && showLogo}
         >
           Usa las teclas <strong>&larr;</strong> y <strong>&rarr;</strong> para
-          cambiar de página, y <strong>&uarr;</strong> y <strong>&darr;</strong>{" "}
+          cambiar de página, y <strong>&uarr;</strong> y <strong>&darr;</strong>{' '}
           para cambiar de pregunta.
         </Slider>
         <Controls centered>
@@ -154,7 +154,7 @@ export default function TriviaPage() {
             >
               <Button
                 onClick={() => setLoop((state) => !state)}
-                variant={loop ? "secondary" : "dark"}
+                variant={loop ? 'secondary' : 'dark'}
               >
                 <Repeat />
               </Button>

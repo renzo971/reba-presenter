@@ -1,6 +1,6 @@
-import { useState } from "react";
-import styledComponents from "styled-components";
-import { Storage } from "../../utils";
+import { useState } from 'react';
+import styledComponents from 'styled-components';
+import { Storage } from 'utils';
 
 export const createCategoryKey = ({ id, type }) => `${type}_${id}_category`;
 
@@ -14,7 +14,7 @@ const AnthemnSelectStyled = styledComponents.select`
 
 export function AnthemnCategory({ element, ...rest }) {
   const [category, setCategory] = useState(
-    Storage.get(createCategoryKey(element) || "")
+    Storage.get(createCategoryKey(element) || '')
   );
 
   const handleChange = ({ target }) => {

@@ -1,5 +1,5 @@
-import { useContext } from "react";
-import { PresenterContext } from "../providers";
+import { useContext } from 'react';
+import { PresenterContext } from 'providers';
 
 export function usePresenter() {
   const { toggle, close, reload, presenter, presenting } =

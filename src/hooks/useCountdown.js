@@ -1,8 +1,8 @@
-import { useCallback, useEffect, useMemo, useState } from "react";
-import { Time } from "../utils";
+import { useCallback, useEffect, useMemo, useState } from 'react';
+import { Time } from 'utils';
 
 export function useCountdown(disabled, callback = () => {}) {
-  const audio = useMemo(() => new Audio("./audio/beep.mp3"), []);
+  const audio = useMemo(() => new Audio('./audio/beep.mp3'), []);
   const [minutes, setMinutes] = useState(0);
   const [seconds, setSeconds] = useState(0);
   const [time, setTime] = useState(Time.formatTime(minutes, seconds));
@@ -34,9 +34,9 @@ export function useCountdown(disabled, callback = () => {}) {
       disabled
         ? null
         : {
-            id: "TEMP",
+            id: 'TEMP',
             text: `<strong class="fs-timer">${time}</strong>`,
-            type: "corner",
+            type: 'corner',
           }
     );
 

@@ -1,10 +1,10 @@
-import { Slide, Storage, Time, generateGUID } from "../utils";
+import { Slide, Storage, Time, generateGUID } from 'utils';
 
 export const BirthdayHelper = {};
 
 BirthdayHelper.getRecent = (now, frame = 3) => {
   return Storage.getAll()
-    .filter(({ key }) => key.includes("birthday"))
+    .filter(({ key }) => key.includes('birthday'))
     .map((item) => item.value)
     .filter(({ month, day }) => {
       const year = now.getFullYear();
@@ -30,7 +30,7 @@ BirthdayHelper.getSlide = (
   birthdays,
   now = new Date(),
   frame = 3,
-  suffix = ""
+  suffix = ''
 ) => {
   const bdays = birthdays.filter((item) => item.active);
 
@@ -42,22 +42,22 @@ BirthdayHelper.getSlide = (
           .map(({ name, day, month }) => {
             return `${name} <i>(${Time.formatBirthday(day, month)})</i>`;
           })
-          .join("/n"),
+          .join('/n'),
         // subtext: `Deseamos que Dios le${bdays.length > 1 ? 's' : ''} bendiga.`,
-        type: "birthday",
+        type: 'birthday',
         count: bdays.length,
       })
     : Slide.create({
-        id: "BS_404",
+        id: 'BS_404',
         text: `No hay cumpleaños que mostrar.`,
-        type: "birthday",
+        type: 'birthday',
         count: 0,
       });
 };
 
 BirthdayHelper.getAll = () => {
   return Storage.getAll()
-    .filter(({ key }) => key.includes("birthday"))
+    .filter(({ key }) => key.includes('birthday'))
     .map((item) => item.value)
     .sort((a, b) => {
       const d1 = new Date(`2021-${a.month}-${a.day}`).getTime();
@@ -68,7 +68,7 @@ BirthdayHelper.getAll = () => {
 
 BirthdayHelper.add = (data, now = new Date(), frame = 3) => {
   data.id = generateGUID();
-  data.type = "birthday";
+  data.type = 'birthday';
   data.birthday = Time.formatBirthday(data.day, data.month);
   data.active = true;
 

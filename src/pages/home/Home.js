@@ -1,4 +1,4 @@
-import { East, Pause, PlayArrow, Repeat, West } from "@mui/icons-material";
+import { East, Pause, PlayArrow, Repeat, West } from '@mui/icons-material';
 import {
   Alert,
   Controls,
@@ -8,14 +8,14 @@ import {
   Slider,
   Title,
   Wrapper,
-} from "../../components";
-import { useBirthday, useIterate, useKeyUp, usePresenter } from "../../hooks";
-import { useEffect, useRef, useState } from "react";
-import { Button, ButtonGroup, OverlayTrigger, Tooltip } from "react-bootstrap";
-import createPersistedState from "use-persisted-state";
-import { Slide } from "../../utils";
-import { BROADCAST, MOVEMENT } from "../../values";
-import { getNotices } from "./data";
+} from 'components';
+import { useBirthday, useIterate, useKeyUp, usePresenter } from 'hooks';
+import { useEffect, useRef, useState } from 'react';
+import { Button, ButtonGroup, OverlayTrigger, Tooltip } from 'react-bootstrap';
+import createPersistedState from 'use-persisted-state';
+import { Slide } from 'utils';
+import { BROADCAST, MOVEMENT } from 'values';
+import { getNotices } from './data';
 
 const useSettings = createPersistedState(BROADCAST.SETTINGS);
 
@@ -47,7 +47,7 @@ export default function HomePage() {
 
   useEffect(() => {
     setNotices((notices) => {
-      const index = notices.findIndex((n) => n.title === "Horarios");
+      const index = notices.findIndex((n) => n.title === 'Horarios');
 
       const schedules =
         settings?.schedules?.filter((entry) => entry.active) || [];
@@ -58,7 +58,7 @@ export default function HomePage() {
           Slide.create({
             //  ${entry.daySuffix ? entry.daySuffix : ''}
             text: `
-                ${entry.name ? `${entry.name}/n` : ""}
+                ${entry.name ? `${entry.name}/n` : ''}
                 <b>${entry.day}</b>/n
                 <strong class="fs-xl" style="line-height:1">
                   ${entry.hour} ${entry.hourSuffix}
@@ -85,9 +85,9 @@ export default function HomePage() {
     setNotice(notice);
   };
 
-  useKeyUp("ArrowUp", handlePrevNotice);
-  useKeyUp("ArrowDown", handleNextNotice);
-  useKeyUp("Space", () => setAutoplay((state) => !state));
+  useKeyUp('ArrowUp', handlePrevNotice);
+  useKeyUp('ArrowDown', handleNextNotice);
+  useKeyUp('Space', () => setAutoplay((state) => !state));
 
   return (
     <Wrapper>
@@ -132,7 +132,7 @@ export default function HomePage() {
           grayscale={presenting && showLogo}
         >
           Usa las teclas <strong>&larr;</strong> y <strong>&rarr;</strong> para
-          cambiar de página, y <strong>&uarr;</strong> y <strong>&darr;</strong>{" "}
+          cambiar de página, y <strong>&uarr;</strong> y <strong>&darr;</strong>{' '}
           para cambiar de anuncio.
         </Slider>
 
@@ -185,7 +185,7 @@ export default function HomePage() {
             >
               <Button
                 onClick={() => setLoop((state) => !state)}
-                variant={loop ? "secondary" : "dark"}
+                variant={loop ? 'secondary' : 'dark'}
               >
                 <Repeat />
               </Button>

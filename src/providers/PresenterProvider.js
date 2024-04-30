@@ -1,5 +1,5 @@
-import React, { useCallback, useState } from "react";
-import { PATHS } from "../router";
+import React, { useCallback, useState } from 'react';
+import { PATHS } from 'router';
 
 const PresenterContext = React.createContext({});
 
@@ -16,7 +16,7 @@ const PresenterProvider = ({ children }) => {
   }, [presenter]);
 
   const reload = useCallback(() => {
-    const electron = window.require("electron");
+    const electron = window.require('electron');
     const remote = electron.remote;
     const { BrowserWindow } = remote;
     const main = BrowserWindow.getFocusedWindow();
@@ -26,7 +26,7 @@ const PresenterProvider = ({ children }) => {
   }, [close]);
 
   const toggle = useCallback(() => {
-    const electron = window.require("electron");
+    const electron = window.require('electron');
     const remote = electron.remote;
     const { BrowserWindow, screen, app } = remote;
     const [parent] = BrowserWindow.getAllWindows();
@@ -59,7 +59,7 @@ const PresenterProvider = ({ children }) => {
 
         win.loadURL(url.replace(/#.*$/, `#${PATHS.CAST_PAGE}`));
 
-        win.once("ready-to-show", () => {
+        win.once('ready-to-show', () => {
           win.show();
           setPresenting(true);
         });

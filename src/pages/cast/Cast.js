@@ -1,6 +1,6 @@
-import { Corner, Logo, Presenter, Wrapper } from "../../components";
-import createPersistedState from "use-persisted-state";
-import { BROADCAST } from "../../values";
+import { Corner, Logo, Presenter, Wrapper } from 'components';
+import createPersistedState from 'use-persisted-state';
+import { BROADCAST } from 'values';
 
 const useBroadcast = createPersistedState(BROADCAST.CHANNEL);
 const useSettings = createPersistedState(BROADCAST.SETTINGS);
@@ -21,7 +21,7 @@ export default function CastPage() {
         </div>
       ) : null}
 
-      <Wrapper style={{ gridArea: "content" }} bare centered {...settings}>
+      <Wrapper style={{ gridArea: 'content' }} bare centered {...settings}>
         {message ? (
           <Presenter
             id={message.id}

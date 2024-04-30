@@ -1,19 +1,18 @@
-import React from "react";
-import { useCallback, useState } from "react";
-import { Button, Col, Form, Modal } from "react-bootstrap";
+import { useCallback, useState } from 'react';
+import { Button, Col, Form, Modal } from 'react-bootstrap';
 
 const DEFAULT_ALERTS = [
-  "Madre/padre de NOMBRE, presentarse en cuna.",
-  "Madre/padre de NOMBRE, acercarse al audio.",
-  "Dueño del carro CARACTERISTICA, acercarse a la entrada.",
-  "Dueño del carro con placa PLACA, acercarse a la entrada.",
-  "Hermano NOMBRE, acercarse a la parte de atrás del auditorio.",
-  "Hermana NOMBRE, acercarse a la parte de atrás del auditorio.",
-  "Recuerde llevar a su hij@ a su respectivo salón.",
+  'Madre/padre de NOMBRE, presentarse en cuna.',
+  'Madre/padre de NOMBRE, acercarse al audio.',
+  'Dueño del carro CARACTERISTICA, acercarse a la entrada.',
+  'Dueño del carro con placa PLACA, acercarse a la entrada.',
+  'Hermano NOMBRE, acercarse a la parte de atrás del auditorio.',
+  'Hermana NOMBRE, acercarse a la parte de atrás del auditorio.',
+  'Recuerde llevar a su hij@ a su respectivo salón.',
 ];
 
 export function AlertMessageModal({ show, handleClose, handleSave }) {
-  const [message, setMessage] = useState("");
+  const [message, setMessage] = useState('');
   const [validated] = useState(true);
 
   const save = useCallback(() => {

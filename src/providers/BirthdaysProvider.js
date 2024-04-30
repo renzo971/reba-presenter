@@ -1,7 +1,7 @@
-import React, { useState, useMemo, useContext } from "react";
+import React, { useState, useMemo, useContext } from 'react';
 
-import { AnthemnsContext } from "../providers";
-import { BIRTHDAY } from "../values";
+import { AnthemnsContext } from 'providers';
+import { BIRTHDAY } from 'values';
 
 const BirthdaysContext = React.createContext({});
 

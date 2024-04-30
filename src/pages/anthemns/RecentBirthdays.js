@@ -1,6 +1,6 @@
-import { List } from "../../components";
-import { useBirthday } from "../../hooks";
-import { Time } from "../../utils";
+import { List } from 'components';
+import { useBirthday } from 'hooks';
+import { Time } from 'utils';
 
 export function RecentBirthdays({ onClick = () => {}, ...rest }) {
   const { recent, bDaySong } = useBirthday();
@@ -15,7 +15,7 @@ export function RecentBirthdays({ onClick = () => {}, ...rest }) {
               title={recent.reduce(
                 (res, { name, day, month }) =>
                   `${res}${name} (${Time.formatBirthday(day, month)})\n`,
-                ""
+                ''
               )}
             >
               Cumpleaños detectados ({recent.length})
@@ -25,7 +25,7 @@ export function RecentBirthdays({ onClick = () => {}, ...rest }) {
           <List.Item>
             <List.Action
               onClick={() => onClick([bDaySong])}
-              title={bDaySong?.text.replaceAll("/n", "\n")}
+              title={bDaySong?.text.replaceAll('/n', '\n')}
             >
               {bDaySong.title}
             </List.Action>

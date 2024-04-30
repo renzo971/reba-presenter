@@ -1,18 +1,18 @@
-import { questions } from "../../assets/data/trivia/questions";
-import { get } from "./helper";
+import { questions } from 'assets/data/trivia/questions';
+import { get } from './helper';
 
 const all = questions;
-const easy = questions.filter((e) => e.difficulty === "EASY");
-const mediumEasy = questions.filter((e) => e.difficulty === "MEDIUM_EASY");
-const medium = questions.filter((e) => e.difficulty === "MEDIUM");
-const hard = questions.filter((e) => e.difficulty === "HARD");
-const veryHard = questions.filter((e) => e.difficulty === "VERY_HARD");
+const easy = questions.filter((e) => e.difficulty === 'EASY');
+const mediumEasy = questions.filter((e) => e.difficulty === 'MEDIUM_EASY');
+const medium = questions.filter((e) => e.difficulty === 'MEDIUM');
+const hard = questions.filter((e) => e.difficulty === 'HARD');
+const veryHard = questions.filter((e) => e.difficulty === 'VERY_HARD');
 
 export const QUESTIONS = [
   {
     id: 1,
     index: 0,
-    type: "trivia",
+    type: 'trivia',
     title: `Todas (${all.length})`,
     slides: [],
     shuffle() {
@@ -22,7 +22,7 @@ export const QUESTIONS = [
   {
     id: 2,
     index: 1,
-    type: "trivia",
+    type: 'trivia',
     title: `Fáciles (${easy.length})`,
     slides: [],
     shuffle() {
@@ -32,7 +32,7 @@ export const QUESTIONS = [
   {
     id: 3,
     index: 2,
-    type: "trivia",
+    type: 'trivia',
     title: `Media-Fáciles (${mediumEasy.length})`,
     slides: [],
     shuffle() {
@@ -42,7 +42,7 @@ export const QUESTIONS = [
   {
     id: 4,
     index: 3,
-    type: "trivia",
+    type: 'trivia',
     title: `Media (${medium.length})`,
     slides: [],
     shuffle() {
@@ -52,7 +52,7 @@ export const QUESTIONS = [
   {
     id: 5,
     index: 4,
-    type: "trivia",
+    type: 'trivia',
     title: `Difíciles (${hard.length})`,
     slides: [],
     shuffle() {
@@ -62,7 +62,7 @@ export const QUESTIONS = [
   {
     id: 6,
     index: 5,
-    type: "trivia",
+    type: 'trivia',
     title: `Muy Difíciles (${veryHard.length})`,
     slides: [],
     shuffle() {

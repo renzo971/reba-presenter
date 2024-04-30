@@ -1,8 +1,7 @@
-import React from "react";
-import { OverlayTrigger, Tooltip } from "react-bootstrap";
-import { NavLink, useLocation } from "react-router-dom";
-import { PATHS, routes } from "../../router";
-import { RoutesbarStyled } from "./styled";
+import { OverlayTrigger, Tooltip } from 'react-bootstrap';
+import { NavLink, useLocation } from 'react-router-dom';
+import { PATHS, routes } from 'router';
+import { RoutesbarStyled } from './styled';
 
 export function Routesbar() {
   const location = useLocation();
@@ -18,7 +17,12 @@ export function Routesbar() {
           .filter((route) => route.menu)
           .map((route, index) => (
             <li key={index} className="nav-item">
-              <NavLink to={route.path} className="nav-link text-dark">
+              <NavLink
+                to={route.path}
+                exact={route.exact}
+                className="nav-link text-dark"
+                activeClassName="active"
+              >
                 <OverlayTrigger
                   placement="right"
                   overlay={<Tooltip id={route.key}>{route.label}</Tooltip>}

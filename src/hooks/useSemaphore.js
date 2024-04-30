@@ -1,5 +1,5 @@
-import { useCallback, useEffect, useState } from "react";
-import { Time } from "../utils";
+import { useCallback, useEffect, useState } from 'react';
+import { Time } from 'utils';
 
 export function useSemaphore() {
   const [minutes, setMinutes] = useState(0);

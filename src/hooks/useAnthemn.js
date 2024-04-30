@@ -1,7 +1,7 @@
-import { useContext } from "react";
-import { AnthemnsContext } from "../providers";
-import { useIterate } from "../hooks";
-import { MOVEMENT } from "../values";
+import { useContext } from 'react';
+import { AnthemnsContext } from 'providers';
+import { useIterate } from 'hooks';
+import { MOVEMENT } from 'values';
 
 export function useAnthemn() {
   const { anthemns, current, setCurrent, tags } = useContext(AnthemnsContext);

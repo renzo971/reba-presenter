@@ -1,4 +1,4 @@
-import { PersonAddAlt, RemoveCircle } from "@mui/icons-material";
+import { PersonAddAlt, RemoveCircle } from '@mui/icons-material';
 import {
   Alert,
   DisplayButton,
@@ -7,14 +7,14 @@ import {
   Sidebar,
   Title,
   Wrapper,
-} from "../../components";
-import { useBirthday, usePresenter } from "../../hooks";
-import { useEffect, useState } from "react";
-import { Button, Form, OverlayTrigger, Tooltip } from "react-bootstrap";
-import createPersistedState from "use-persisted-state";
-import { Time } from "../../utils";
-import { BROADCAST } from "../../values";
-import { BirthdayModal } from "./modal";
+} from 'components';
+import { useBirthday, usePresenter } from 'hooks';
+import { useEffect, useState } from 'react';
+import { Button, Form, OverlayTrigger, Tooltip } from 'react-bootstrap';
+import createPersistedState from 'use-persisted-state';
+import { Time } from 'utils';
+import { BROADCAST } from 'values';
+import { BirthdayModal } from './modal';
 
 const useBroadcast = createPersistedState(BROADCAST.CHANNEL);
 const useSettings = createPersistedState(BROADCAST.SETTINGS);

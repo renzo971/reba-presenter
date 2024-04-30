@@ -1,26 +1,25 @@
-import React from "react";
 import {
   Audiotrack,
   AutoStories,
   Cake,
   Newspaper,
   PsychologyAlt,
-} from "@mui/icons-material";
-import AnthemnsPage from "../pages/anthemns";
-import BirthdaysPage from "../pages/birthdays";
-import CastPage from "../pages/cast";
-import HomePage from "../pages/home";
-import ScripturesPage from "../pages/scriptures";
-import TriviaPage from "../pages/trivia";
+} from '@mui/icons-material';
+import AnthemnsPage from 'pages/anthemns';
+import BirthdaysPage from 'pages/birthdays';
+import CastPage from 'pages/cast';
+import HomePage from 'pages/home';
+import ScripturesPage from 'pages/scriptures';
+import TriviaPage from 'pages/trivia';
 
 export const PATHS = {
-  ROOT: "/",
-  SCRIPTURES_PAGE: "/scriptures",
-  ANTHEMNS_PAGE: "/anthemns",
-  BIRTHDAYS_PAGE: "/birthdays",
-  CAST_PAGE: "/cast-screen",
-  COUNTDOWN_PAGE: "/countdown",
-  TRIVIA_PAGE: "/trivia",
+  ROOT: '/',
+  SCRIPTURES_PAGE: '/scriptures',
+  ANTHEMNS_PAGE: '/anthemns',
+  BIRTHDAYS_PAGE: '/birthdays',
+  CAST_PAGE: '/cast-screen',
+  COUNTDOWN_PAGE: '/countdown',
+  TRIVIA_PAGE: '/trivia',
 };
 
 export const routes = flatten([
@@ -30,7 +29,7 @@ export const routes = flatten([
     path: PATHS.ROOT,
     component: HomePage,
     icon: <Newspaper />,
-    label: "Anuncios",
+    label: 'Anuncios',
     menu: true,
     showLabel: true,
   },
@@ -40,7 +39,7 @@ export const routes = flatten([
     path: PATHS.SCRIPTURES_PAGE,
     component: ScripturesPage,
     icon: <AutoStories />,
-    label: "Escrituras",
+    label: 'Escrituras',
     menu: true,
     showLabel: true,
   },
@@ -50,7 +49,7 @@ export const routes = flatten([
     path: PATHS.ANTHEMNS_PAGE,
     component: AnthemnsPage,
     icon: <Audiotrack />,
-    label: "Himnos",
+    label: 'Himnos',
     menu: true,
     showLabel: true,
   },
@@ -60,7 +59,7 @@ export const routes = flatten([
     path: PATHS.BIRTHDAYS_PAGE,
     component: BirthdaysPage,
     icon: <Cake />,
-    label: "Cumpleaños",
+    label: 'Cumpleaños',
     menu: true,
     showLabel: true,
   },
@@ -69,7 +68,7 @@ export const routes = flatten([
     exact: true,
     path: PATHS.CAST_PAGE,
     component: CastPage,
-    label: "Proyectar",
+    label: 'Proyectar',
   },
   // {
   //   key: PATHS.COUNTDOWN_PAGE,
@@ -87,7 +86,7 @@ export const routes = flatten([
     path: PATHS.TRIVIA_PAGE,
     component: TriviaPage,
     icon: <PsychologyAlt />,
-    label: "Trivia",
+    label: 'Trivia',
     menu: true,
     showLabel: true,
   },
@@ -95,7 +94,7 @@ export const routes = flatten([
 
 function flatten(routes) {
   // Recursive loop
-  const flattenDeep = (routes = [], accum, path = "") => {
+  const flattenDeep = (routes = [], accum, path = '') => {
     routes.forEach((route) => {
       const newPath = path + route.path;
       accum.push({ ...route, path: newPath });

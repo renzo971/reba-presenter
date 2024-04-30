@@ -1,5 +1,5 @@
-import React, { useState, useMemo } from "react";
-import json from "../assets/data/bible";
+import React, { useState, useMemo } from 'react';
+import json from 'assets/data/bible';
 
 const ScripturesContext = React.createContext({});
 
@@ -10,7 +10,7 @@ function ScripturesProvider({ children }) {
     const data = json.map((entry) => {
       return {
         ...entry,
-        content: require(`../assets/data/bible/${entry.key}.json`),
+        content: require(`assets/data/bible/${entry.key}.json`),
       };
     });
 
@@ -22,9 +22,9 @@ function ScripturesProvider({ children }) {
             // Verse data
             index: index++,
             title: `${book.shortTitle} ${chapterIndex + 1}:${verseIndex + 1}`,
-            text: verse.replaceAll("/n", "<br/>"),
+            text: verse.replaceAll('/n', '<br/>'),
             subtext: `${book.shortTitle} ${chapterIndex + 1}:${verseIndex + 1}`,
-            type: "verse",
+            type: 'verse',
             // Metadata
             bookNumber: book.number,
             chapterNumber: chapterIndex + 1,
@@ -36,7 +36,7 @@ function ScripturesProvider({ children }) {
             prevBookNumber: Math.max(book.number - 1, 1),
             nextChapterNumber: chapterIndex + 2,
             prevChapterNumber: chapterIndex,
-            length: verse.replaceAll("/n", "").length,
+            length: verse.replaceAll('/n', '').length,
           };
         });
       });

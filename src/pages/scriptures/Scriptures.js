@@ -1,4 +1,4 @@
-import { East, FirstPage, LastPage, West } from "@mui/icons-material";
+import { East, FirstPage, LastPage, West } from '@mui/icons-material';
 import {
   Alert,
   Bookmark,
@@ -11,15 +11,15 @@ import {
   Sidebar,
   Title,
   Wrapper,
-} from "../../components";
-import { useKeyUp, usePresenter, useScriptures } from "../../hooks";
-import { useEffect, useRef, useState } from "react";
-import { Button, ButtonGroup, OverlayTrigger, Tooltip } from "react-bootstrap";
-import { Typeahead } from "react-bootstrap-typeahead";
-import createPersistedState from "use-persisted-state";
-import { getBookmarkedItems } from "../../utils";
-import { BROADCAST, MOVEMENT } from "../../values";
-import { finderRender, typeaheadRender } from "./renders";
+} from 'components';
+import { useKeyUp, usePresenter, useScriptures } from 'hooks';
+import { useEffect, useRef, useState } from 'react';
+import { Button, ButtonGroup, OverlayTrigger, Tooltip } from 'react-bootstrap';
+import { Typeahead } from 'react-bootstrap-typeahead';
+import createPersistedState from 'use-persisted-state';
+import { getBookmarkedItems } from 'utils';
+import { BROADCAST, MOVEMENT } from 'values';
+import { finderRender, typeaheadRender } from './renders';
 
 const useBroadcast = createPersistedState(BROADCAST.CHANNEL);
 const useSettings = createPersistedState(BROADCAST.SETTINGS);
@@ -32,7 +32,7 @@ function ScripturesView() {
   const [settings] = useSettings(BROADCAST.INITIAL_SETTINGS);
   const [showLogo, setShowLogo] = useState(true);
   const [search, setSearch] = useState([current]);
-  const [bookmarks, setBookmarks] = useState(getBookmarkedItems("verse"));
+  const [bookmarks, setBookmarks] = useState(getBookmarkedItems('verse'));
   const [openFinder, setOpenFinder] = useState(false);
   const { presenting } = usePresenter();
 
@@ -80,12 +80,12 @@ function ScripturesView() {
     setSearch([verse]);
   };
 
-  useKeyUp("ArrowLeft", handlePrevVerse);
-  useKeyUp("ArrowRight", handleNextVerse);
-  useKeyUp("ArrowUp", handleNextChapter);
-  useKeyUp("ArrowDown", handlePrevChapter);
-  useKeyUp("F1", () => typeaheadRef.current.focus());
-  useKeyUp("KeyB", () => setOpenFinder(true), { ctrl: true });
+  useKeyUp('ArrowLeft', handlePrevVerse);
+  useKeyUp('ArrowRight', handleNextVerse);
+  useKeyUp('ArrowUp', handleNextChapter);
+  useKeyUp('ArrowDown', handlePrevChapter);
+  useKeyUp('F1', () => typeaheadRef.current.focus());
+  useKeyUp('KeyB', () => setOpenFinder(true), { ctrl: true });
 
   return (
     <Wrapper>
@@ -100,9 +100,9 @@ function ScripturesView() {
           minLength={0}
           onChange={handleSearch}
           onKeyDown={(e) => {
-            if (e.key === ".") {
+            if (e.key === '.') {
               e.preventDefault();
-              e.currentTarget.value += ":";
+              e.currentTarget.value += ':';
             }
           }}
           onFocus={(e) => e.target.select()}
@@ -152,13 +152,13 @@ function ScripturesView() {
 
         <div className="text-white bg-dark py-2 px-3 d-flex justify-content-between">
           <small>
-            Usa las teclas <strong>&larr;</strong> y <strong>&rarr;</strong>{" "}
-            para cambiar de versículo, y <strong>&uarr;</strong> y{" "}
+            Usa las teclas <strong>&larr;</strong> y <strong>&rarr;</strong>{' '}
+            para cambiar de versículo, y <strong>&uarr;</strong> y{' '}
             <strong>&darr;</strong> para cambiar de capítulo.
           </small>
           <small>
             Capítulo: {current.chapterNumber}/{current.chaptersCount} &middot;
-            Libro: {current.bookNumber}/66 &middot;{" "}
+            Libro: {current.bookNumber}/66 &middot;{' '}
             <strong className="text-light">
               {Math.round(
                 ((current.index / scriptures.length) * 100 + Number.EPSILON) *

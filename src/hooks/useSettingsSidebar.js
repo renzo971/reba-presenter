@@ -1,5 +1,5 @@
-import { useContext } from "react";
-import { AppContext } from "../providers";
+import { useContext } from 'react';
+import { AppContext } from 'providers';
 
 export function useSettingsSidebar() {
   const { showingSettings, toggleSettings, openSettings, closeSettings } =

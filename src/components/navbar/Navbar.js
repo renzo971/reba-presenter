@@ -1,19 +1,18 @@
-import React from "react";
 import {
   CancelPresentation,
   Chat,
   Settings,
   Slideshow,
-} from "@mui/icons-material";
-import { Countdown, Logo } from "../../components";
-import { usePresenter, useSettingsSidebar } from "../../hooks";
-import { useCallback, useState } from "react";
-import { Button, OverlayTrigger, Tooltip } from "react-bootstrap";
-import { useLocation } from "react-router-dom";
-import { PATHS } from "../../router";
-import createPersistedState from "use-persisted-state";
-import { BROADCAST } from "../../values";
-import { AlertMessageModal } from "./modal";
+} from '@mui/icons-material';
+import { Countdown, Logo } from 'components';
+import { usePresenter, useSettingsSidebar } from 'hooks';
+import { useCallback, useState } from 'react';
+import { Button, OverlayTrigger, Tooltip } from 'react-bootstrap';
+import { useLocation } from 'react-router-dom';
+import { PATHS } from 'router';
+import createPersistedState from 'use-persisted-state';
+import { BROADCAST } from 'values';
+import { AlertMessageModal } from './modal';
 
 const useAlert = createPersistedState(BROADCAST.ALERT);
 const useSettings = createPersistedState(BROADCAST.SETTINGS);
@@ -33,7 +32,7 @@ export function Navbar() {
       setAlert(message);
 
       setTimeout(() => {
-        setAlert("");
+        setAlert('');
       }, settings.alertsinterval || 30000);
     },
     [setAlert, settings]
@@ -44,15 +43,15 @@ export function Navbar() {
   }
 
   const styles = `navbar navbar-expand-lg sticky-top ${
-    presenting ? "navbar-light bg-secondary" : "navbar-dark bg-primary"
+    presenting ? 'navbar-light bg-secondary' : 'navbar-dark bg-primary'
   }`;
 
   return (
     <>
       <nav
         style={{
-          gridArea: "navbar",
-          boxShadow: "0 -2px 15px 0 rgba(0, 0, 0, 1)",
+          gridArea: 'navbar',
+          boxShadow: '0 -2px 15px 0 rgba(0, 0, 0, 1)',
         }}
         className={styles}
       >
@@ -61,7 +60,7 @@ export function Navbar() {
             <Logo
               height={24}
               logo="horizontal"
-              color={presenting ? "#20232a" : "#fff"}
+              color={presenting ? '#20232a' : '#fff'}
             />
           </span>
           <ul className="navbar-nav mr-auto">
@@ -72,7 +71,7 @@ export function Navbar() {
               >
                 <Button
                   onClick={toggleSettings}
-                  className={presenting ? "text-dark" : "text-light"}
+                  className={presenting ? 'text-dark' : 'text-light'}
                   variant="link"
                 >
                   <Settings />
@@ -87,7 +86,7 @@ export function Navbar() {
                 >
                   <Button
                     onClick={() => setShowModal(true)}
-                    className={presenting ? "text-dark" : "text-light"}
+                    className={presenting ? 'text-dark' : 'text-light'}
                     variant="link"
                   >
                     <Chat />
@@ -97,7 +96,7 @@ export function Navbar() {
             )}
           </ul>
           {alert ? (
-            <div className="marquee mr-3" style={{ maxWidth: "250px" }}>
+            <div className="marquee mr-3" style={{ maxWidth: '250px' }}>
               <p className="m-0">{alert}</p>
             </div>
           ) : null}
@@ -114,13 +113,13 @@ export function Navbar() {
             placement="bottom"
             overlay={
               <Tooltip>
-                {presenting ? "Detener proyección" : "Iniciar proyección"}
+                {presenting ? 'Detener proyección' : 'Iniciar proyección'}
               </Tooltip>
             }
           >
             <Button
               onClick={toggle}
-              variant={presenting ? "outline-dark" : "secondary"}
+              variant={presenting ? 'outline-dark' : 'secondary'}
             >
               {presenting ? <CancelPresentation /> : <Slideshow />}
             </Button>

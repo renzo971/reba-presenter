@@ -1,6 +1,6 @@
-import { shuffle, Slide } from "../../utils";
+import { shuffle, Slide } from 'utils';
 
-const letters = ["A)", "B)", "C)", "D)"];
+const letters = ['A)', 'B)', 'C)', 'D)'];
 
 export function get(list) {
   return shuffle(list)
@@ -17,7 +17,7 @@ export function get(list) {
               (o, i) =>
                 `<div class="col-6 opt-${i}"><div class="opts">${letters[i]} ${o}</div></div>`
             )
-            .join("")}</div></div>`,
+            .join('')}</div></div>`,
         }),
         Slide.create({
           text: `<b>Respuesta:</b>/n${
